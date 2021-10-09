@@ -15,10 +15,6 @@ db.on('error', err => {
   console.err(err)
 })
 
-const opts = {
-  // Make Mongoose use Unix time (seconds since Jan 1, 1970)
-  timestamps: { currentTime: () => Math.floor(Date.now() / 1000) }
-}
 
 // With Mongoose, everything is derived from a Schema
 const reviewSchema = new Schema({
@@ -35,7 +31,7 @@ const reviewSchema = new Schema({
   reviewer_name: String,
   reviewer_email: String,
   helpfulness: Number
-}, { collection: 'reviewCSV', opts })
+}, { collection: 'reviewCSV' })
 
 const characteristicSchema = new Schema({
   name: String,
