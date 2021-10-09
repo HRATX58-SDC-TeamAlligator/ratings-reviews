@@ -11,6 +11,19 @@ app.listen(port, () => {
   console.log('SDC server listening on port: ' + port)
 })
 
+// test endpoint
+app.get('/test/', (req, res) => {
+  const prodId = { product_id: Number(req.query.product_id) }
+  getReviews(prodId, (err, reviewData) => {
+    if (err) {
+      res.status(404).send('Error with test endpoint!')
+    } else {
+      res.send('HELLO WORLD')
+    }
+  })
+})
+
+
 // get reviews ** WORKS **
 app.get('/reviews/', (req, res) => {
   const prodId = { product_id: Number(req.query.product_id) }
