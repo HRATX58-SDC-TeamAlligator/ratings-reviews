@@ -101,7 +101,6 @@ const getReviewMeta = (productId, callback) => {
       console.log(`error getting data for ${productId} from db!`)
       callback(err)
     } else {
-      console.log('data in getReviewMeta: ', data)
       callback(null, data)
     }
   })
